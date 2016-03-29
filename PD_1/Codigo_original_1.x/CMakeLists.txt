@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( codigooriginal )
+find_package( OpenCV REQUIRED )
+add_executable( codigooriginal codigooriginal.cpp )
+target_link_libraries( codigooriginal ${OpenCV_LIBS} )

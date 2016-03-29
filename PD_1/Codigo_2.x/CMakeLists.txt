@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( PD1_UsingMAT )
+find_package( OpenCV REQUIRED )
+add_executable( PD1_UsingMAT PD1_UsingMAT.cpp )
+target_link_libraries( PD1_UsingMAT ${OpenCV_LIBS} )
