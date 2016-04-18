@@ -1,0 +1,12 @@
+#include "PointClickDistance.hpp"
+
+int main(int argc, char** argv){
+    PointClickDistance windowClick;
+    CvCapture* capture = cvCreateCameraCapture(1);
+
+    windowClick.gettingROI();
+    windowClick.getDistance();
+
+
+	return 0;
+}

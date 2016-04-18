@@ -1,0 +1,13 @@
+/*
+ * ReadData.cpp
+ *
+ *  Created on: 17/04/2016
+ *      Author: eller
+ */
+#include <opencv2/core/core.hpp>
+#include <iostream>
+#include <string>
+
+#include <ReadData.h>
+
+

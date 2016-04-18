@@ -1,0 +1,25 @@
+#include "PointClickDistance.hpp"
+#include <iostream>
+
+int main(int argc, char** argv){
+    PointClickDistance windowClick;
+    cv::FileStorage fs;
+    cv::VideoCapture cap(1);
+    std::string distortion = "Distortion.xml";
+    std::string intrinsics = "Intrinsics.xml";
+    cv::Mat distortionMat, intrinsicsMat;
+
+    //windowClick.gettingROI();
+    //windowClick.getDistance();
+
+    fs(distortion, cv::FileStorage::READ);
+    fs["Distortion"] >> distortionMat;
+    fs.release();
+
+    fs(intrinsics, cv::FileStorage::READ);
+    fs["Intrinsics"] >> intrinsicsMat;
+    fs.release();
+
+
+    return 0;
+}

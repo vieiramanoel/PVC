@@ -1,0 +1,35 @@
+/*
+ * ReadData.h
+ *
+ *  Created on: 17/04/2016
+ *      Author: eller
+ */
+#include <opencv2/core/core.hpp>
+#include <iostream>
+#include <string>
+#ifndef INCLUDE_READDATA_H_
+#define INCLUDE_READDATA_H_
+using namespace cv;
+using namespace std;
+class ReadData {
+public:
+    ReadData() : A(0), X(0), id(){}
+    explicit ReadData(int) : A(97), X(CV_PI), id("mydata1234") // explicit to avoid implicit conversion
+    {}
+    void write(FileStorage& fs) const                        //Write serialization for this class
+    {
+        fs << "{" << "A" << A << "X" << X << "id" << id << "}";
+    }
+    void read(const FileNode& node)                          //Read serialization for this class
+    {
+        A = (int)node["A"];
+        X = (double)node["X"];
+        id = (string)node["id"];
+    }
+public:   // Data Members
+    int A;
+    double X;
+    string id;
+};
+
+#endif /* INCLUDE_READDATA_H_ */

@@ -1,0 +1,18 @@
+/*
+ * ReadData.cpp
+ *
+ *  Created on: 17/04/2016
+ *      Author: eller
+ */
+
+#include <ReadData.h>
+
+ReadData::ReadData() {
+	// TODO Auto-generated constructor stub
+
+}
+
+ReadData::~ReadData() {
+	// TODO Auto-generated destructor stub
+}
+

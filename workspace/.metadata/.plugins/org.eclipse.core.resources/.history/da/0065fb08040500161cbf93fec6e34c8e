@@ -1,0 +1,31 @@
+/*
+ * ReadData.cpp
+ *
+ *  Created on: 17/04/2016
+ *      Author: eller
+ */
+#include <opencv2/core/core.hpp>
+#include <iostream>
+#include <string>
+
+#include <ReadData.h>
+
+static void ReadData::write(cv::FileStorage& fs, const std::string&, const MyData& x)
+{
+    x.write(fs);
+}
+static void ReadData::read(const cv::FileNode& node, ReadData& x, const ReadData& default_value = ReadData()){
+    if(node.empty())
+        x = default_value;
+    else
+        x.read(node);
+}
+
+// This function will print our custom class to the console
+static std::ostream& operator<<(std::ostream& out, const ReadData& m)
+{
+    out << "{ id = " << m.id << ", ";
+    out << "X = " << m.X << ", ";
+    out << "A = " << m.A << "}";
+    return out;
+}

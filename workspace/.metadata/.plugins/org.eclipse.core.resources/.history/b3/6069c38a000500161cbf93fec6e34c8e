@@ -1,0 +1,14 @@
+#include "PointClickDistance.hpp"
+
+int main(int argc, char** argv){
+	cv::Mat image;
+    PointClickDistance windowClick;
+
+
+    windowClick.gettingROI();
+    windowClick.getDistance();
+    cv::VideoCapture cap(1);
+    if (!cap.isOpened()) return -1;
+
+    return 0;
+}

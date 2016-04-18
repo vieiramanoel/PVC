@@ -1,0 +1,41 @@
+#include "PointClickDistance.hpp"
+
+int main(int argc, char** argv){
+	cv::Mat image;
+	cv::Mat mapx, mapy, dst;
+    PointClickDistance windowClick;
+
+    cv::VideoCapture cap(0);
+
+    windowClick.gettingROI();
+    windowClick.getDistance();
+
+    cv::Mat *intrinsic = (CvMat*)cvLoad("Intrinsics.xml");
+	cv::Mat *distortion = (CvMat*)cvLoad("Distortion.xml");
+
+	cap >> image;
+
+	mapx.create(image.size(), CV_32FC1);
+	mapy.create(image.size(), CV_32FC1);
+
+	while(image){
+
+		cv::Mat t = image.clone();
+		cv::imshow( "Raw Video", image );          // Show raw image
+		cv::remap(t, image, mapx, mapy, CV_INTER_LINEAR, cv::BORDER_CONSTANT, cv::Scalar(0,0,0));            // Undistort image
+		cv::imshow("Undistort", image);            // Show corrected image
+
+		//Handle pause/unpause and ESC
+		int c = cvWaitKey(15);
+		if(c == 'p')
+		{
+			c = 0;
+			while(c != 'p' && c != 27)
+			{
+				c = cvWaitKey(250);
+			}
+		}
+		if(c == 27)
+			break;
+    return 0;
+}

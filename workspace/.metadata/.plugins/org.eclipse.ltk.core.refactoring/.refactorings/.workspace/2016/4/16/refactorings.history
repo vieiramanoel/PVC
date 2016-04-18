@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;calibracao/include/ReadData.h&apos;" deleteContents="false" description="Delete resource &apos;calibracao/include/ReadData.h&apos;" element1="/calibracao/include/ReadData.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1460944029742"/>&#x0A;<refactoring comment="Delete resource &apos;calibracao/src/ReadData.cpp&apos;" deleteContents="false" description="Delete resource &apos;calibracao/src/ReadData.cpp&apos;" element1="/calibracao/src/ReadData.cpp" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1460944032502"/>
+</session>

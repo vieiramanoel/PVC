@@ -1,0 +1,34 @@
+#include "PointClickDistance.hpp"
+#include <iostream>
+
+int main(int argc, char** argv){
+    PointClickDistance windowClick;
+    cv::FileStorage fs;
+    cv::VideoCapture cap(1);
+    cv::Mat distortionMat, intrinsicsMat;
+    cv::Mat mapx, mapy, frame;
+    std::string distortion = "Distortion.xml";
+    std::string intrinsics = "Intrinsics.xml";
+
+    //windowClick.gettingROI();
+    //windowClick.getDistance();
+    frame << cap;
+    fs(distortion, cv::FileStorage::READ);
+    fs["Distortion"] >> distortionMat;
+    fs.release();
+
+    fs(intrinsics, cv::FileStorage::READ);
+    fs["Intrinsics"] >> intrinsicsMat;
+    fs.release();
+    cv::Mat emptyR;
+    mapx.create(frame.size(), CV_32FC1);
+    mapy.create(frame.size(), CV_32FC1);
+    cv::initUndistortRectifyMap(intrinsicsMat, distortionMat, emptyR, intrinsicsMat, CV_32FC1, mapx, mapy )
+    cv::namedWindow("remaped window", 1);
+    while(true){
+    	cv::Mat img;
+    	cv::remap(frame, img, mapx, mapy, CV_INTER_LINEAR, cv::BORDER_CONSTANT, cv::Scalar(0,0, 0));
+    	if (cv::waitKey(30) >= 30) break;
+    }
+    return 0;
+}
