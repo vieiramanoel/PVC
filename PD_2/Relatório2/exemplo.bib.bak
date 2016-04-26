@@ -1,0 +1,20 @@
+% Encoding: UTF-8@misc{OpenCVDocs,
+  title = {OpenCV Docs},
+  year = {(Acessado 21-03-2016)},
+  howpublished = "\url{http://docs.opencv.org/2.4/modules/core/doc/basic_structures.html}",
+}
+
+@Misc{WikiCalibrate,
+  title =        {Chessboard detection},
+  howpublished = {https://en.wikipedia.org/wiki/Chessboard_detection},
+  month =        {March},
+  year =         {2016}
+}
+
+@Article{,
+  author = {Rui Miranda},
+  title =  {Interface com computador por Controlo Visual de Cursores},
+  year =   {2002},
+  url =    {http://paginas.fe.up.pt/~ee97107/Relatorio_de_Projecto_FINAL_PARTE_2.pdf}
+}
+

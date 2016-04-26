@@ -1,0 +1,138 @@
+\documentclass[conference,harvard,brazil,english]{sbatex}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{bbding}
+\usepackage{fixltx2e}
+
+\graphicspath{ {imagens/} }
+
+\begin{document}
+	\title{Calibração de Câmeras Usando OpenCV}
+	\author{Manoel Vieira Coelho Neto}{vieiranetoc@gmail.com}
+	\address{SQS 203 Bloco J\\ Brasília, DF, Brasil}
+	
+	\twocolumn[{
+		\maketitle		
+		\selectlanguage{Brazil}
+		\begin{abstract} 
+			\par Este relatório visa apresentar os resultados obtidos através da calibração da câmera, onde foi usado funções da biblioteca OpenCV apresentadas em sala de aula para estimar os parâmetros intrínsecos e de distorção de uma câmera, usando um padrão de tabuleiro de xadrez tentamos estimar o mais próximo possível tais parâmetros. Sucessivas calibrações são necessárias, e a estimativa dos padrões é feita estatisticamente com base nesses valores.
+		\end{abstract}
+		\keywords{OpenCV, Visão Computacional, Calibração, Tabuleiro de Xadrez}
+	}]
+	\selectlanguage{Brazil}
+	\section{Introdução}
+		\par Uma câmera \textit{pinhole} é um modelo simples, uma variação da câmera escura - primeiro instrumento usado para captação de imagens do do mundo em uma superfície- sem lente, com uma pequena abertura e a prova de luz internamente, a luz que passa por esse buraco forma uma imagem invertida no fundo da caixa. Um problema quanto à modelagem do dispositivo utilizado nesse experimento é que no modelo \textit{pinhole} a imagem embaçava por causa do aspecto de onda da luz, assim, na periferia de onde a luz batia a pouca energia das regiões ao redor se somavam e borravam a imagem, para consertar este problema, introduziu-se uma lente esférica à frente do buraco, para que cada ponto no mundo a ser captado estivesse associado a um único ponto na imagem, graças às características dessas lentes (distância focal, foco, abertura) isso foi possível e é assim que modelaremos nosso dispositivo: uma câmera \textit{pinhole} com uma lente esférica à frente do buraco. No presente trabalho usamos a calibração por tabuleiro de xadrez na qual reduzimos o problema do mundo 3D calculando parâmetros 2D, considerando que estamos colocando o plano da imagem no centro da câmera. 
+		\par Os parâmetros intrínsecos derivam das seguintes três propriedades:
+		\begin{itemize}
+			\item[\Checkmark] Projeção Perspectiva (Distância focal f)
+			\item[\Checkmark] Transformação entre frames de câmera e pixel
+			\item[\Checkmark] Distorção geométrica introduzida pelo sistema ótico
+		\end{itemize}
+		\par A relação entre x\textsubscript{cam} e y\textsubscript{cam} da câmera e x\textsubscript{img} e y\textsubscript{img} da imagem é dado por:
+		\begin{center}
+			$ x_{cam} = -(x_{img}-o_{x})s_{x} $\\
+			$ y_{cam} = -(y_{img}-o_{y})s_{y} $\\
+		\end{center}
+		 \par Onde s\textsubscript{x} e s\textsubscript{y} são os valores dos tamanhos do pixel do dispositivo e o\textsubscript{x} e o\textsubscript{y} as coordenadas do centro da imagem.
+		 \par Devido a natureza esférica da lente, a distorção é um deslocamento radial dos pontos na imagem e pode ser calculado como
+		 \begin{center}
+			 $ x = x_{d}(1 + k_{1}r^{2} + k_{2}r^{4}) $\\
+			 $ y = y_{d}(1 + k_{1}r^{2} + k_{2}r^{4}) $
+		 \end{center}
+		 \par Os  parâmetros  extrínsecos  consistem  na  posição  e  na  orientação  do  referencial		 de   coordenadas   da   câmera  relativamente  a  um  outro  sistema  de  coordenadas.  A 		 determinação  dos  parâmetros  extrínsecos  nem  sempre  é  necessária,  caso  se  possa  	 trabalhar  exclusivamente  com  as  coordenadas  da  câmara  (coordenadas  no  sistema  		 referencial  da  câmera).\textsuperscript{[1]}.
+		 \section{Materiais e Metodologia}
+		 \par Para o presente trabalho foi usado:
+		 \begin{itemize}
+		 	\item[\Checkmark] WebCam Logitech C520
+		 	\item[\Checkmark] Tabuleiro de Xadrez (quadrados de 20cm\textsuperscript{2})
+		 	
+		 \end{itemize}
+		 
+		 \par A calibração foi feita usando um tabuleiro de xadrez com quadrados de 28cm\textsuperscript{2} onde o mesmo era apresentado em diferentes posições para a câmera a fim de mapear e retificar a imagem da câmera, foram feitas cinco calibrações com 30 imagens sendo capturadas em cada uma num intervalo de 2 segundos. Ao final foi tirada a média e desvio padrão de cada uma das medidas que seguem apresentadas abaixo.
+		 \begin{table}[h]
+		 	\centering
+		 	\caption{Parâmetros de distorção}
+		 	\label{Distorção}
+		 	\begin{tabular}{lllll}
+		 		\\K1               & K2                 &  &  &  \\
+		 		$ -13,47\pm12,44 $    & $ 2015\pm1834,6 $      &  &  &  \\\\
+		 		P1                 & P2                 &  &  &  \\
+		 		$ 0,047985\pm0,076289 $ & $ -0,098994\pm0,098237  $&  &  & 
+		 	\end{tabular}
+		 \end{table}
+		 \begin{table}[h]
+		 	\centering
+		 	\caption{Matriz de Parâmetros Intrínsecos}
+		 	\label{my-label}
+		 	\begin{tabular}{lllll}
+		 		\\ $6,9e^{3}\pm3,1e^{3} $ & 0                & $ 2,9e^{2}\pm3,9e^{1} $     &  &  \\
+		 		0                & $ 9,8e^{3}\pm5,3e^{3} $ & $ 2,4e^{2}\pm2,9e^{1} $ &  &  \\
+		 		0                & 0                & 1                       &  &  \\
+		 		&                  &                         &  & 
+		 	\end{tabular}
+		 \end{table} 
+		\pagebreak
+		\par É possível observar as discrepâncias nos valores, isso ocorre porque uma vez que a calibração é humana e manual, não podemos assegurar a invariância de alguns parâmetros como o eixo z por exemplo, por outras vezes, entortou-se o tabuleiro em uma angulação não desejada, entre outros erros aleatórios.
+		
+		\par A etapa final do projeto consiste em medir um objeto em cada uma das células do \textit{grid}. Podemos perceber que a distorção é maior nas bordas, segue a tabela para as distâncias de 0.2m, 0.8m, e 1.5m:
+		\begin{table}[h]
+			\centering
+			\caption{Tabela da tela distorcida}
+			\label{my-label}
+			\begin{tabular}{lllll}
+				Distância & 0.20m & 0.8m & 1.5m &  \\
+				Célula 1  &   -   &  85  &  22  &  \\
+				Célula 2  &   -   &  82  &  26  &  \\
+				Célula 3  &   -   &  88  &  27  &  \\
+				Célula 4  &   -   &  -   &  36  &  \\
+				Célula 5  &  290  &  83  &  36  &  \\
+				Célula 6  &  288  &  85  &  37  &  \\
+				Célula 7  &  271  &  85  &  33  &  \\
+				Célula 8  &  259  &  85  &  31  &  \\
+				Célula 9  &  267  &  70  &  31  &  \\
+				Célula 10 &  268  &  88  &  33  &  \\
+				Célula 11 &  258  &  94  &  36  &  \\
+				Célula 12 &  272  &  96  &  32  &  \\
+				Célula 13 &   -   &  98  &  35  &  \\
+				Célula 14 &   -   &  95  &  39  &  \\
+				Célula 15 &   -   &  99  &  40  &  \\
+				Célula 16 &   -   &  85  &  41  & 
+			\end{tabular}
+		\end{table}
+			\begin{table}[h]
+				\centering
+				\caption{Tabela da Tela Não-Distorcida}
+				\label{my-label}
+				\begin{tabular}{lllll}
+					Distância & 0.20m & 0.8m & 1.5m &  \\
+					Célula 1  &  -    &  87  &  26  &  \\
+					Célula 2  &  -    &  89  &  27  &  \\
+					Célula 3  &  -    &  90  &  27  &  \\
+					Célula 4  &  -    &  -   &  35  &  \\
+					Célula 5  &  297  &  81  &  35  &  \\
+					Célula 6  &  290  &  79  &  32  &  \\
+					Célula 7  &  272  &  79  &  27  &  \\
+					Célula 8  &  273  &  79  &  33  &  \\
+					Célula 9  &  270  &  82  &  39  &  \\
+					Célula 10 &  267  &  89  &  33  &  \\
+					Célula 11 &  265  &  96  &  37  &  \\
+					Célula 12 &  279  &  95  &  31  &  \\
+					Célula 13 &  -    &  91  &  34  &  \\
+					Célula 14 &  -    &  90  &  42  &  \\
+					Célula 15 &  -    &  92  &  40  &  \\
+					Célula 16 &  -    &  92  &  42  & 
+				\end{tabular}
+			\end{table}
+			\par Considerando um pixel quadrado e que cada pixel da câmera está associado ao pixel da imagem no computador -ambos são modelos ideais, mas não é o que acontece na prática- esse é o tamanho do nosso objeto em pixeis na imagem.
+			\par Onde '-' representam as células que não puderam ser medidas.
+	\section{Resultados} 
+			\par Foi possível constatar a dificuldade de calibrar a câmera, primeiramente em razão de não ser possível manter a distância Z da câmera ao tabuleiro constante, há também a correção de lentes do próprio dispositivo a qual atrapalha o processo de calibração. É visível também como a calibração e distorção nas bordas da imagem é muito mais difícil de corrigir e calibrar, e que a cada calibração os valores flutuam muito por causa da variação alta dos parâmetros. Novamente: como não se pode assegurar a angulação do tabuleiro, a distância Z, a iluminação constante durante as horas que passam enquanto é feita a calibragem, tudo isso afeta a medição e a estimativa dos valores, os quais também são obtidos por métodos numéricos e carregam consigo uma certa imprecisão.
+			\par Mesmo com os erros altos e sua propagação sobre todo o experimento, foi possível obter bons valores para nossas matrizes e boas aproximações não-distorcidas, como se pode ver nas tabelas acima, em quase todos os casos, o objeto não-distorcido foi menor que o objeto "puro".
+			\par Assim, não foi possível obter resultados muito satisfatórios sobre o experimento, apenas uma boa análise do método o que serviu de grande aprendizado para experiências futuras, onde erros como os citados acima serão conhecidos e evitados.
+\bibliography{exemplo}
+\textsuperscript{[1]}\cite{CalibraMiranda}
+\cite{WikiCalibrate}
+\end{document}
