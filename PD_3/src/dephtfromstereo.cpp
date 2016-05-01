@@ -28,23 +28,22 @@ int main(int argc, char const *argv[])
 
     leftImage = cv::imread(argv[1]);
     rightImage = cv::imread(argv[2]);
-
+    uchar *p;
     cv::cvtColor(rightImage, rightImage, CV_BGR2GRAY);
     cv::cvtColor(leftImage, leftImage, CV_BGR2GRAY);
     cv::Mat templateLeft, templateRight;
     std::vector<int> sadList;
     for (int i = template_size; i < leftImage.rows - template_size; ++i){
         for (int j = template_size; j < leftImage.cols - template_size; ++j){
+        	templateLeft = createtemplate(template_size, leftImage, cv::Point(i, j));
         	for (int k = j; k < leftImage.cols - template_size; ++k){
-        		getchar();
         		templateRight = createtemplate(template_size, rightImage, cv::Point(i,k));
-        		comparetemplate(templateRight, templateLeft);
-        		//sadList.push_back();
+        		sadList.push_back(comparetemplate(templateLeft, templateRight));
         	}
             //std::cout << *std::min_element(sadList.begin(), sadList.end()) << std::endl;
             sadList.clear();
-            std::cout << "j = " << j<< std::endl;
         }
+        printf("i = %d \n", i);
     }
 
     return 0;
@@ -66,7 +65,7 @@ cv::Mat createtemplate(int template_size, cv::Mat image, cv::Point position){
     return createdtemplate;
 }
 
-int comparetemplate(cv::Mat templateRight, cv::Mat templateLeft){
+int comparetemplate(cv::Mat templateLeft, cv::Mat templateRight){
     uchar *pR, *pL;
     int sad = 0;
 
@@ -76,8 +75,7 @@ int comparetemplate(cv::Mat templateRight, cv::Mat templateLeft){
         pR = templateRight.ptr<uchar>(i);
         for (int j = 0; j < templateLeft.cols; ++j)
         {
-            std::cout << std::abs(pR[j] - pL[j]);
-            printf("to aqui\n");
+            sad += std::abs(pR[j] - pL[j]);
         }
     }
 
