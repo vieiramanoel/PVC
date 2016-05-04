@@ -1,8 +1,15 @@
+/*
+ * depthmap.cpp
+ *
+ *  Created on: May 3, 2016
+ *      Author: vieira
+ */
 #include "opencv2/opencv.hpp"
 #include "iostream"
 #include "cstdio"
 #include "string"
 #include "cmath"
+#include "climits"
 
 cv::Mat createtemplate(int, cv::Mat, cv::Point);
 int comparetemplate(cv::Mat, cv::Mat);
@@ -28,23 +35,39 @@ int main(int argc, char const *argv[])
 
     leftImage = cv::imread(argv[1]);
     rightImage = cv::imread(argv[2]);
-    uchar *p;
+
     cv::cvtColor(rightImage, rightImage, CV_BGR2GRAY);
     cv::cvtColor(leftImage, leftImage, CV_BGR2GRAY);
     cv::Mat templateLeft, templateRight;
-    std::vector<int> sadList;
+    cv::Mat depth(leftImage.rows, leftImage.cols, CV_8UC1);
+    int sad = INT_MAX;
+    int comparatedsad = 0;
+    int z;
+    int diffx, samePoint;
+
     for (int i = template_size; i < leftImage.rows - template_size; ++i){
-        for (int j = template_size; j < leftImage.cols - template_size; ++j){
-        	templateLeft = createtemplate(template_size, leftImage, cv::Point(i, j));
-        	for (int k = j; k < leftImage.cols - template_size; ++k){
-        		templateRight = createtemplate(template_size, rightImage, cv::Point(i,k));
-        		sadList.push_back(comparetemplate(templateLeft, templateRight));
-        	}
-            //std::cout << *std::min_element(sadList.begin(), sadList.end()) << std::endl;
-            sadList.clear();
+
+    	for (int j = template_size; j < leftImage.cols - template_size; ++j){
+            templateLeft = createtemplate(template_size, leftImage, cv::Point(i, j));
+            for (int k = 0; k <= j; ++k){
+                templateRight = createtemplate(template_size, rightImage, cv::Point(i,k));
+                comparatedsad = comparetemplate(templateRight, templateLeft);
+                if (comparatedsad < sad){
+                	diffx = j - k;
+                	samePoint = j;
+                	sad = comparatedsad;
+                }
+            }
+        if (diffx != 0)
+        	z = 3000/(diffx);
+        else
+        	z = 3000;
+        depth.at<uchar>(i, samePoint) = z;
         }
-        printf("i = %d \n", i);
+        std::cout << "i = " << i << std::endl;
     }
+    cv::imshow("lala", depth);
+    cv::waitKey();
 
     return 0;
 }
