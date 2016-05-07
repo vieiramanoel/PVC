@@ -1,0 +1,2 @@
+Para compilar o código basta digitar o comando 'make' no terminal e esperar que seja compilado
+a seguir execute com './opencv2 arg1 arg2', onde 'arg1' é a primeira imagem e 'arg2' a segunda, sempre a da esquerda primeiro.

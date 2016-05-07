@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.6)  6 MAY 2016 17:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.6)  6 MAY 2016 21:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Relat贸rio_PD2.tex
-(./Relat贸rio_PD2.tex
+**rel3.tex
+(./rel3.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 2 languages loaded.
+Babel <3.9h> and hyphenation patterns for 3 languages loaded.
 (./sbatex.cls
 Document Class: sbatex 2000/12/18 LaTeX2e class for Revista SBA - 1.0 alpha
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
@@ -44,29 +44,19 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2013/12/03 3.9h The Babel package
 
-
-! Package babel Error: Unknown option `brazil'. Either you misspelled it
-(babel)                or the language definition file brazil.ldf was not found
-.
-
-See the babel package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.296 \ProcessOptions*
-                      
-Valid options are: shorthands=, KeepShorthandsActive,
-activeacute, activegrave, noconfigs, safe=, main=, math=
-headfoot=, strings=, config=, hyphenmap=, or a language name.
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
-Language: english 2012/08/20 v3.3p English support from the babel system
+(/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuges.ldf
+Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2013/12/03 3.9h Babel common definitions
 \babel@savecnt=\count90
 \U@D=\dimen105
 )
+\l@brazil = a dialect from \language\l@portuges 
+Package babel Info: Making " an active character on input line 145.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2012/08/20 v3.3p English support from the babel system
 \l@british = a dialect from \language\l@english 
 \l@UKenglish = a dialect from \language\l@english 
 \l@canadian = a dialect from \language\l@american 
@@ -546,16 +536,8 @@ Package: bbding 1999/04/15 v1.01 Dingbats symbols
 (/usr/share/texlive/texmf-dist/tex/latex/base/fixltx2e.sty
 Package: fixltx2e 2006/09/13 v1.1m fixes to LaTeX
 LaTeX Info: Redefining \em on input line 420.
-)
-(./Relat贸rio_PD2.aux
-
-LaTeX Warning: Label `my-label' multiply defined.
-
-
-LaTeX Warning: Label `my-label' multiply defined.
-
-)
-\openout1 = `Relat贸rio_PD2.aux'.
+) (./rel3.aux)
+\openout1 = `rel3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -571,7 +553,8 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 12.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 12.
@@ -667,7 +650,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-(./Relat贸rio_PD2.loa
+(./rel3.loa
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -677,121 +660,100 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 1.
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ))
 \tf@loa=\write3
-\openout3 = `Relat贸rio_PD2.loa'.
+\openout3 = `rel3.loa'.
 
 
-(./Relat贸rio_PD2.los)
+(./rel3.los)
 \tf@los=\write4
-\openout4 = `Relat贸rio_PD2.los'.
+\openout4 = `rel3.los'.
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 24.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 19.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 24.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 19.
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
-! Package babel Error: You haven't defined the language Brazil yet.
-
-See the babel package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 	}]
-        
-Your command will be ignored, type <return> to proceed
-
-
-! Package babel Error: You haven't defined the language Brazil yet.
-
-See the babel package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.25 	\selectlanguage{Brazil}
-                             
-Your command will be ignored, type <return> to proceed
-
-
-Underfull \hbox (badness 7740) in paragraph at lines 28--29
-[]\T1/cmr/m/n/10 Os par鈓et-ros in-tr韓secos derivam das
- []
-
-LaTeX Font Info:    Try loading font information for U+ding on input line 30.
-(/usr/share/texlive/texmf-dist/tex/latex/bbding/Uding.fd
-File: Uding.fd 1996/02/01 v1.0 BBding font definitions
-)
-Underfull \hbox (badness 4168) in paragraph at lines 45--46
-[]\T1/cmr/m/n/10 Os par鈓et-ros ex-tr韓secos con-sis-tem na
  []
 
 
-Overfull \hbox (34.2742pt too wide) in paragraph at lines 59--65
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+<image/gray.png, id=1, 126.4725pt x 108.405pt>
+File: image/gray.png Graphic file (type png)
+ <use image/gray.png>
+Package pdftex.def Info: image/gray.png used on input line 37.
+(pdftex.def)             Requested size: 126.47218pt x 108.40472pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+
  []
 
 
-Overfull \hbox (22.4615pt too wide) in paragraph at lines 70--76
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+<image/baby.png, id=3, 184.69pt x 162.6075pt>
+File: image/baby.png Graphic file (type png)
+ <use image/baby.png>
+Package pdftex.def Info: image/baby.png used on input line 40.
+(pdftex.def)             Requested size: 184.68953pt x 162.6071pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
-] (./Relat贸rio_PD2.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 3--6
-[]| | \T1/cmr/m/it/10 Chess-board de-tec-tion \T1/cmr/m/n/10 (2016).  $\T1/cmtt
-/m/n/10 https :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3--6
-\T1/cmtt/m/n/10 / / en . wikipedia . org / wiki / Chessboard _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--11
-\T1/cmtt/m/n/10 http : / / paginas . fe . up . pt / ~ee97107 /
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--11
-\T1/cmtt/m/n/10 Relatorio _ de _ Projecto _ FINAL _ PARTE _ 2 .
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+ <./image/gray.png>] (./rel3.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 11--15
+\T1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Sum _ of _
  []
 
-) [2] (./Relat贸rio_PD2.aux)
+) [2
 
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+ <./image/baby.png>] (./rel3.aux) ) 
 Here is how much of TeX's memory you used:
- 3934 strings out of 495028
- 53520 string characters out of 6181498
- 127249 words of memory out of 5000000
- 7045 multiletter control sequences out of 15000+600000
- 10383 words of font info for 27 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 37i,10n,29p,1238b,310s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/vieira/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/
-vieira/.texmf-var/fonts/pk/ljfour/public/bbding/bbding10.600pk> </home/vieira/.
-texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/vieira/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecbx0800.600pk> </home/vieira/.texmf-var/fonts/pk/l
-jfour/jknappen/ec/ectt1000.600pk> </home/vieira/.texmf-var/fonts/pk/ljfour/jkna
-ppen/ec/ecrm1000.600pk> </home/vieira/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
-ti1000.600pk> </home/vieira/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600
-pk> </home/vieira/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Relat贸rio_PD2.pdf (2 pages, 130578 bytes).
+ 3980 strings out of 495004
+ 54106 string characters out of 6180663
+ 118411 words of memory out of 5000000
+ 7099 multiletter control sequences out of 15000+600000
+ 9464 words of font info for 25 fonts, out of 8000000 for 9000
+ 16 hyphenation exceptions out of 8191
+ 37i,6n,29p,963b,255s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/vieira/.texmf-var/fonts/pk/ljfour/jk
+nappen/ec/ecrm0500.600pk> </home/vieira/.texmf-var/fonts/pk/ljfour/jknappen/ec/
+ecrm0700.600pk> </home/vieira/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.6
+00pk> </home/vieira/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </ho
+me/vieira/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/vieira/
+.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk> </home/vieira/.texmf-var
+/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
+fb>
+Output written on rel3.pdf (2 pages, 179168 bytes).
 PDF statistics:
- 327 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 303 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

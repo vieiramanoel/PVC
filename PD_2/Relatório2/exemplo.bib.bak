@@ -1,4 +1,11 @@
-% Encoding: UTF-8@misc{OpenCVDocs,
+% Encoding: UTF-8
+
+@Article{CalibraMiranda,
+  author = {Rui Miranda},
+  title =  {Interface com computador por Controlo Visual de Cursores},
+  year =   {2002},
+  url =    {http://paginas.fe.up.pt/~ee97107/Relatorio_de_Projecto_FINAL_PARTE_2.pdf}
+}@misc{OpenCVDocs,
   title = {OpenCV Docs},
   year = {(Acessado 21-03-2016)},
   howpublished = "\url{http://docs.opencv.org/2.4/modules/core/doc/basic_structures.html}",
@@ -11,10 +18,14 @@
   year =         {2016}
 }
 
-@Article{,
-  author = {Rui Miranda},
-  title =  {Interface com computador por Controlo Visual de Cursores},
-  year =   {2002},
-  url =    {http://paginas.fe.up.pt/~ee97107/Relatorio_de_Projecto_FINAL_PARTE_2.pdf}
+@Misc{SAD_Algorithm,
+  title = {Sum of absolute differences (SAD)},
+  url   = {https://en.wikipedia.org/wiki/Sum_of_absolute_differences},
 }
 
+@Misc{docsocv,
+  title = {OpenCV Docs},
+  url   = {http://docs.opencv.org/2.4/},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
