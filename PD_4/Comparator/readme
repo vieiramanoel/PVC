@@ -1,0 +1,2 @@
+Compilar usando make, executar passando a imagem gt como primeiro argumento, e as outras tres seguir a mesma ordem a cada execução, para não encher o terminal com argumentos, é necessário comparar um gt e 3 saídas por vez, assim, o programa leva 4 argumentos.
+por exemplo: ./opencv 46gt.png 46sobel.png 46laplace.png 46canny.png

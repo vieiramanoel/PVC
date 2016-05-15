@@ -1,0 +1,4 @@
+for arg in "$@"
+do
+	./opencv $arg
+done
