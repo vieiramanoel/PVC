@@ -1,0 +1,47 @@
+\documentclass[conference,harvard,brazil,english]{sbatex}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{bbding}
+\usepackage{fixltx2e}
+
+\graphicspath{{images/}}
+
+\begin{document}
+	\title{Extração da Matriz GLCM de uma imagem RGB}
+	\author{Manoel Vieira Coelho Neto\\14/0152512}{vieiranetoc@gmail.com}
+	\address{SQS 203 Bloco J\\ Brasília, DF, Brasil}
+	
+	\twocolumn[{
+		\maketitle		
+	}]
+	\selectlanguage{Brazil}
+	\section{Objetivos}
+	\paragraph{} Este relatório tem como objetivo extrair a matriz GLCM \textit{Gray-Level Co-occurrence Matrix} a partir de uma imagem RGB qualquer. Para que se possa extrair texturas.
+	
+	\section{Introdução}
+	\par Segundo o Wikipedia\textsuperscript{[1]}, textura é o aspecto de uma superfície, ou seja, que permite identificá-la e distinguí-la de outras formas. Segundo Tamura, Mori e Yamawaki\textsuperscript{[2]}, textura é o que constitui uma região macroscópica. Sua estrutura é atribuída aos	padrões repetitivos no qual os elementos (ou primitivas) são arranjadas de acordo com uma regra de posicionamento. Por fim, Sklansky\textsuperscript{[3]} define textura como: uma região em uma imagem tem uma textura constante se um conjunto de estatísticas locais ou outras propriedades são constantes ou variam de forma suave ou aproximadamente periódica. Assim, é um aspecto de interesse e importante para a analise de imagens pois, cada textura descreve um elemento único no domínio. Um dos descritores mais eficiente disponível na literatura é a GLCM \textit{Gray-Level Co-Occurrence Matrix} (Matriz de Coocorrência e escala de cinza), algoritmo implementado nesse projeto demonstrativo. Como é montado em cima de uma imagem de escala de cinza, a matriz resultante é uma matriz 256$\times$256, onde cada entrada funciona como um contador sobre quantas vezes um par de cores de se repetiu numa vizinhança predefinida ao longo de toda a imagem. Essa matriz pode medir a textura da imagem pois, é tipicamente grande e esparsa.
+	
+	\section{Metodologia}
+	\paragraph{}
+		Busca-se neste projeto duas matrizes GLCM, uma com orientação de 0° e outra de 45° para tanto, compara-se cada pixel da imagem de entrada convertida para escala de cinza com o seu vizinho à direita, para cada pixel toma-se seu valor $v$ (i, j) -que varia de 0 a 255- e o valor $v_n$ do seu vizinho (i, j+1), a esse par é somado um contador à coordenada $(v, v_n)$ na matriz GLCM, por fim, tem-se uma matriz de coocorrência desses valores. O processo para a orientação de 45° é análogo, mas compara-se (i, j) e (i-1, j+1).
+		\par Extraídas as matrizes GLCM da imagem de entrada, é necessário normalizar as entradas dessa mesma matriz, para que tenha-se a probabilidade daquela ocorrência $(v, v_n)$. 
+		\par Ao final salvam-se as matrizes resultantes em um arquivo xml em padrão de OpenCV-Mat, para posteriores usos da matriz.
+		
+	\section{Resultados}
+	\paragraph{}
+		Os resultados obtidos podem ser verificados nos arquivos .xml anexados ao presente projeto demonstrativo, é possível verificar que há a presença de alguns zeros na matriz, que decorrem do fato de que algumas cores não são vizinhas entre si, e portanto não tem probabilidade nenhuma de ocorrer.
+	\section{Conclusão}
+	\paragraph{}
+		Pode-se observar a baixa taxa de probabilidade de muitos elementos da matriz, o que é plausível, pois há muitas possíveis combinações de pares de pixel. Não é possível fazer muitas análises sobre a matriz dada sua grande dimensão e a não aplicação de seus valores com um fim prático neste projeto.
+	\bibliography{exemplo}
+	\textsuperscript{[1]}
+	\cite{WikiTextura}\newline
+	\textsuperscript{[2][3]} Slides aula 11\newline
+	\cite{GLCMTutorial}
+	
+	
+	
+\end{document}
