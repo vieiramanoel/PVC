@@ -1,42 +1,39 @@
 This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: Rel4.aux
-I couldn't open style file dcu.bst
----line 3 of file Rel4.aux
- : \bibstyle{dcu
- :              }
-I'm skipping whatever remains of this command
-I found no style file---while reading file Rel4.aux
-You've used 1 entry,
-            0 wiz_defined-function locations,
-            86 strings with 499 characters,
-and the built_in function-call counts, 0 in all, are:
+The top-level auxiliary file: PD5.aux
+The style file: dcu.bst
+I found no \citation commands---while reading file PD5.aux
+I found no \bibdata command---while reading file PD5.aux
+You've used 0 entries,
+            2921 wiz_defined-function locations,
+            635 strings with 4704 characters,
+and the built_in function-call counts, 32 in all, are:
 = -- 0
 > -- 0
 < -- 0
 + -- 0
 - -- 0
 * -- 0
-:= -- 0
+:= -- 18
 add.period$ -- 0
 call.type$ -- 0
 change.case$ -- 0
 chr.to.int$ -- 0
 cite$ -- 0
 duplicate$ -- 0
-empty$ -- 0
+empty$ -- 1
 format.name$ -- 0
-if$ -- 0
-int.to.chr$ -- 0
+if$ -- 1
+int.to.chr$ -- 5
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 0
+newline$ -- 3
 num.names$ -- 0
 pop$ -- 0
-preamble$ -- 0
+preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 0
+skip$ -- 1
 stack$ -- 0
 substring$ -- 0
 swap$ -- 0
@@ -47,5 +44,5 @@ type$ -- 0
 warning$ -- 0
 while$ -- 0
 width$ -- 0
-write$ -- 0
+write$ -- 2
 (There were 2 error messages)
